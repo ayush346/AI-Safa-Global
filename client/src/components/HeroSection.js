@@ -10,9 +10,15 @@ const HeroSection = () => {
       {/* Landing Page Banner Image */}
       <section className="landing-banner">
         <img 
-          src="/images/hero-landing-image.jpg" 
+          src={process.env.PUBLIC_URL + "/images/hero-landing-image.jpg"} 
           alt="Al Safa Global - Your Trusted Partner in Procurement & Supply Chain Solutions" 
           className="landing-banner-image"
+          onLoad={() => console.log('Hero landing image loaded successfully from:', process.env.PUBLIC_URL + "/images/hero-landing-image.jpg")}
+          onError={(e) => {
+            console.error('Error loading hero landing image:', e);
+            console.error('Attempted URL:', process.env.PUBLIC_URL + "/images/hero-landing-image.jpg");
+            console.error('PUBLIC_URL:', process.env.PUBLIC_URL);
+          }}
         />
       </section>
       
@@ -61,6 +67,29 @@ const HeroSection = () => {
               Industrial, Marine, Aerospace, Defence, IT, and Office Supplies sectors.
             </motion.p>
             
+            {/* Mobile-only image display */}
+            <motion.div 
+              className="hero-visual-mobile"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <div className="hero-image-container">
+                <div className="hero-main-image">
+                  <img 
+                    src={process.env.PUBLIC_URL + "/images/global-procurement.png"} 
+                    alt="Global Procurement Solutions" 
+                    className="hero-image"
+                    onLoad={() => console.log('Mobile global procurement image loaded successfully')}
+                    onError={(e) => {
+                      console.error('Error loading mobile global procurement image:', e);
+                      console.error('Attempted URL:', process.env.PUBLIC_URL + "/images/global-procurement.png");
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+            
             <motion.div 
               className="hero-actions"
               initial={{ opacity: 0, y: 30 }}
@@ -108,9 +137,14 @@ const HeroSection = () => {
             <div className="hero-image-container">
               <div className="hero-main-image">
                 <img 
-                  src="/images/global-procurement.png" 
+                  src={process.env.PUBLIC_URL + "/images/global-procurement.png"} 
                   alt="Global Procurement Solutions" 
                   className="hero-image"
+                  onLoad={() => console.log('Desktop global procurement image loaded successfully')}
+                  onError={(e) => {
+                    console.error('Error loading desktop global procurement image:', e);
+                    console.error('Attempted URL:', process.env.PUBLIC_URL + "/images/global-procurement.png");
+                  }}
                 />
               </div>
             </div>

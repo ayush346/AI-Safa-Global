@@ -88,29 +88,29 @@ const About = () => {
   ];
 
   const brands = [
-    { name: "HP", image: "/images/brands/hp-logo.png" },
-    { name: "IBM", image: "/images/brands/ibm-logo.png" },
-    { name: "SCHNEIDER", image: "/images/brands/schneider-logo.png" },
-    { name: "ABB", image: "/images/brands/abb-logo.png" },
-    { name: "ALLEN BRADLEY", image: "/images/brands/allen-bradley-logo.png" },
-    { name: "3M", image: "/images/brands/3m-logo.png" },
-    { name: "CAT", image: "/images/brands/cat-logo.png" },
-    { name: "MAKITA", image: "/images/brands/makita-logo.png" },
-    { name: "CARRIER", image: "/images/brands/carrier-logo.png" },
-    { name: "LG", image: "/images/brands/lg-logo.png" },
-    { name: "ROSEMOUNT", image: "/images/brands/rosemount-logo.png" },
-    { name: "EMERSON COPELAND", image: "/images/brands/emerson-copeland-logo.png" },
-    { name: "YORK", image: "/images/brands/york-logo.png" },
-    { name: "TRANE", image: "/images/brands/trane-logo.png" },
-    { name: "DAIKIN", image: "/images/brands/daikin-logo.png" },
-    { name: "MITSUBISHI ELECTRIC", image: "/images/brands/mitsubishi-electric-logo.png" },
-    { name: "BOSCH", image: "/images/brands/bosch-logo.png" },
-    { name: "JOHNSON CONTROLS", image: "/images/brands/johnson-controls-logo.png" },
-    { name: "JOTUN", image: "/images/brands/jotun-logo.png" },
-    { name: "NATIONAL PAINTS", image: "/images/brands/national-paints-logo.png" },
-    { name: "CATERPILLAR", image: "/images/brands/caterpillar-logo.png" },
-    { name: "FG-WILSON", image: "/images/brands/fg-wilson-logo.png" },
-    { name: "PARKER FILTERS & INSTRUMENTS", image: "/images/brands/parker-filters-logo.png" }
+    { name: "HP", image: process.env.PUBLIC_URL + "/images/brands/hp-logo.png" },
+    { name: "IBM", image: process.env.PUBLIC_URL + "/images/brands/ibm-logo.png" },
+    { name: "SCHNEIDER", image: process.env.PUBLIC_URL + "/images/brands/schneider-logo.png" },
+    { name: "ABB", image: process.env.PUBLIC_URL + "/images/brands/abb-logo.png" },
+    { name: "ALLEN BRADLEY", image: process.env.PUBLIC_URL + "/images/brands/allen-bradley-logo.png" },
+    { name: "3M", image: process.env.PUBLIC_URL + "/images/brands/3m-logo.png" },
+    { name: "CAT", image: process.env.PUBLIC_URL + "/images/brands/cat-logo.png" },
+    { name: "MAKITA", image: process.env.PUBLIC_URL + "/images/brands/makita-logo.png" },
+    { name: "CARRIER", image: process.env.PUBLIC_URL + "/images/brands/carrier-logo.png" },
+    { name: "LG", image: process.env.PUBLIC_URL + "/images/brands/lg-logo.png" },
+    { name: "ROSEMOUNT", image: process.env.PUBLIC_URL + "/images/brands/rosemount-logo.png" },
+    { name: "EMERSON COPELAND", image: process.env.PUBLIC_URL + "/images/brands/emerson-copeland-logo.png" },
+    { name: "YORK", image: process.env.PUBLIC_URL + "/images/brands/york-logo.png" },
+    { name: "TRANE", image: process.env.PUBLIC_URL + "/images/brands/trane-logo.png" },
+    { name: "DAIKIN", image: process.env.PUBLIC_URL + "/images/brands/daikin-logo.png" },
+    { name: "MITSUBISHI ELECTRIC", image: process.env.PUBLIC_URL + "/images/brands/mitsubishi-electric-logo.png" },
+    { name: "BOSCH", image: process.env.PUBLIC_URL + "/images/brands/bosch-logo.png" },
+    { name: "JOHNSON CONTROLS", image: process.env.PUBLIC_URL + "/images/brands/johnson-controls-logo.png" },
+    { name: "JOTUN", image: process.env.PUBLIC_URL + "/images/brands/jotun-logo.png" },
+    { name: "NATIONAL PAINTS", image: process.env.PUBLIC_URL + "/images/brands/national-paints-logo.png" },
+    { name: "CATERPILLAR", image: process.env.PUBLIC_URL + "/images/brands/caterpillar-logo.png" },
+    { name: "FG-WILSON", image: process.env.PUBLIC_URL + "/images/brands/fg-wilson-logo.png" },
+    { name: "PARKER FILTERS & INSTRUMENTS", image: process.env.PUBLIC_URL + "/images/brands/parker-filters-logo.png" }
   ];
 
   return (
@@ -172,14 +172,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <div className="image-container">
-                <div className="floating-element element-1">
-                  <FiGlobe />
-                  <span>Global Reach</span>
-                </div>
-                <div className="floating-element element-3">
-                  <FiShield />
-                  <span>Trust</span>
-                </div>
+                {/* Floating elements removed */}
               </div>
             </motion.div>
           </div>
@@ -488,7 +481,15 @@ const About = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <img src={brand.image} alt={brand.name} />
+                <img 
+                  src={brand.image} 
+                  alt={brand.name}
+                  onLoad={() => console.log(`${brand.name} logo loaded successfully`)}
+                  onError={(e) => {
+                    console.error(`Error loading ${brand.name} logo:`, e);
+                    console.error('Attempted URL:', brand.image);
+                  }}
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -542,7 +543,7 @@ const About = () => {
                   Al Hamra Industrial Zone-FZ<br />
                   P.O. Box 10055<br />
                   Ras Al Khaimah, United Arab Emirates<br />
-                  <a href="tel:+97172211123" style={{ color: 'inherit', textDecoration: 'underline' }}>+971 7 221 1123</a>
+                  <a href="tel:0097143741969" style={{ color: 'inherit', textDecoration: 'underline' }}>00971 4 3741 969</a>
                 </p>
               </div>
             </div>

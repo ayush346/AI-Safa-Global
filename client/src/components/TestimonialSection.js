@@ -50,7 +50,7 @@ const TestimonialSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <p className="testimonial-text">"{testimonial.text}"</p>
+              <p className="testimonial-text" lang="en">"{testimonial.text}"</p>
               <div className="testimonial-author">
                 <h4>{testimonial.name}</h4>
                 <p>{testimonial.position}, {testimonial.company}</p>

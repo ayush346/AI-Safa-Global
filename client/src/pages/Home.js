@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
@@ -28,6 +28,97 @@ const Home = () => {
     threshold: 0.1,
     triggerOnce: true
   });
+  
+  const [cardsScrolled, setCardsScrolled] = useState({
+    card1: false,
+    card2: false,
+    card3: false,
+    card4: false,
+    card5: false
+  });
+
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasTransitioned, setHasTransitioned] = useState(false);
+
+  // Check if user is revisiting the home page
+  useEffect(() => {
+    const hasVisitedOtherPages = sessionStorage.getItem('hasVisitedOtherPages');
+    if (hasVisitedOtherPages === 'true') {
+      // Reset cards if user is revisiting after visiting other pages
+      setCardsScrolled({
+        card1: false,
+        card2: false,
+        card3: false,
+        card4: false,
+        card5: false
+      });
+      setHasTransitioned(false);
+      sessionStorage.removeItem('hasVisitedOtherPages');
+    }
+  }, []);
+
+  // Track when user leaves home page
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (hasTransitioned) {
+        sessionStorage.setItem('hasVisitedOtherPages', 'true');
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && hasTransitioned) {
+        sessionStorage.setItem('hasVisitedOtherPages', 'true');
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [hasTransitioned]);
+
+  // Handle scroll effect for floating cards in mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      const cardsContainer = document.querySelector('.image-container');
+      if (cardsContainer) {
+        const rect = cardsContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const currentScrollY = window.scrollY;
+        const isScrollingDown = currentScrollY > lastScrollY;
+        
+        // Check if cards are in viewport (mobile only)
+        if (window.innerWidth <= 767) {
+          if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+            // Only trigger transitions when scrolling down and haven't transitioned yet
+            if (isScrollingDown && !hasTransitioned) {
+              // Trigger cards one by one with staggered timing
+              setTimeout(() => setCardsScrolled(prev => ({ ...prev, card1: true })), 0);
+              setTimeout(() => setCardsScrolled(prev => ({ ...prev, card2: true })), 200);
+              setTimeout(() => setCardsScrolled(prev => ({ ...prev, card3: true })), 400);
+              setTimeout(() => setCardsScrolled(prev => ({ ...prev, card4: true })), 600);
+              setTimeout(() => setCardsScrolled(prev => ({ ...prev, card5: true })), 800);
+              setHasTransitioned(true); // Mark as transitioned permanently
+            }
+          }
+        }
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    // Only add scroll listener on mobile
+    if (window.innerWidth <= 767) {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Check initial state
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY, hasTransitioned]);
 
   const features = [
     {
@@ -78,6 +169,13 @@ const Home = () => {
       link: "/divisions#oil-gas"
     },
     {
+      title: "Construction & Infrastructure",
+      description: "Comprehensive sourcing for building materials, tools, safety gear, MEP systems, IT hardware/software, and site essentials.",
+      icon: "🏗️",
+      color: "var(--primary-blue-dark)",
+      link: "/divisions#construction-infrastructure"
+    },
+    {
       title: "Industrial & Manufacturing",
       description: "Providing MRO supplies, automation components, PPE, bearings, motors, spare parts, and factory-grade consumables.",
       icon: "🏭",
@@ -96,7 +194,7 @@ const Home = () => {
       description: "Discreet and reliable sourcing of tactical gear, technical equipment, uniforms, field supplies, and maintenance parts.",
       icon: "🛡️",
       color: "var(--text-primary)",
-      link: "/divisions#defence"
+      link: "/divisions#defence-sector"
     }
   ];
 
@@ -155,10 +253,6 @@ const Home = () => {
                   <span>Integrated Logistics Management</span>
                 </div>
               </div>
-              <Link to="/about" className="btn btn-primary">
-                Learn More About Us
-                <FiArrowRight />
-              </Link>
             </motion.div>
 
             <motion.div 
@@ -168,27 +262,40 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="image-container">
-                <div className="floating-card card-1">
+                <div className={`floating-card card-1 ${cardsScrolled.card1 ? 'scrolled' : ''}`}>
                   <FiTrendingUp />
                   <span>Growth</span>
                 </div>
-                <div className="floating-card card-2">
+                <div className={`floating-card card-2 ${cardsScrolled.card2 ? 'scrolled' : ''}`}>
                   <FiGlobe />
                   <span>Global</span>
                 </div>
-                <div className="floating-card card-3">
+                <div className={`floating-card card-3 ${cardsScrolled.card3 ? 'scrolled' : ''}`}>
                   <FiAward />
                   <span>Quality</span>
                 </div>
-                <div className="floating-card card-4">
+                <div className={`floating-card card-4 ${cardsScrolled.card4 ? 'scrolled' : ''}`}>
                   <FiPackage />
                   <span>Procurement</span>
                 </div>
-                <div className="floating-card card-5">
+                <div className={`floating-card card-5 ${cardsScrolled.card5 ? 'scrolled' : ''}`}>
                   <FiLink />
                   <span>Supply Chain</span>
                 </div>
               </div>
+            </motion.div>
+
+            {/* Learn More About Us Button - positioned after floating cards */}
+            <motion.div 
+              className="about-cta-button"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link to="/about" className="btn btn-primary">
+                Learn More About Us
+                <FiArrowRight />
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -237,7 +344,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="gradient-text">Why Choose Al Safa Global?</h2>
+            <h2>Why Choose <span className="gold-text">Al Safa Global</span>?</h2>
             <p className="section-subtitle">
               We combine industry expertise with innovative solutions to deliver exceptional value to our clients
             </p>

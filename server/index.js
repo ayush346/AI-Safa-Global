@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config();
 
 const app = express();
 
@@ -91,6 +91,11 @@ const connectDB = async () => {
       ? process.env.MONGODB_URI_PROD 
       : process.env.MONGODB_URI;
     
+    if (!mongoURI) {
+      console.log('⚠️  No MongoDB URI found, running without database');
+      return;
+    }
+    
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -99,7 +104,7 @@ const connectDB = async () => {
     console.log('✅ MongoDB connected successfully');
   } catch (error) {
     console.error('❌ MongoDB connection error:', error.message);
-    process.exit(1);
+    console.log('⚠️  Running without database connection');
   }
 };
 

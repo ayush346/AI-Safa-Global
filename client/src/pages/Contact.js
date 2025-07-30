@@ -1,9 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiPhone, FiGlobe, FiClock, FiUsers } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    division: '',
+    inquiryType: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Create email subject
+      const subject = `${formData.inquiryType} - ${formData.division}`;
+      
+      // Create email body with all form details
+      const emailBody = `
+Dear Al Safa Global Team,
+
+I would like to submit an inquiry through your website contact form.
+
+CONTACT DETAILS:
+• Name: ${formData.name}
+• Email: ${formData.email}
+• Company: ${formData.company || 'Not provided'}
+• Phone: ${formData.phone || 'Not provided'}
+
+INQUIRY DETAILS:
+• Division of Interest: ${formData.division}
+• Type of Inquiry: ${formData.inquiryType}
+
+MESSAGE:
+${formData.message}
+
+---
+This message was sent from the Al Safa Global website contact form.
+Submitted on: ${new Date().toLocaleString()}
+      `.trim();
+
+      // Create mailto URL
+      const mailtoUrl = `mailto:info@alsafaglobal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open default email client
+      window.open(mailtoUrl, '_blank');
+
+      // Show success message
+      setSubmitStatus('success');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        division: '',
+        inquiryType: '',
+        message: ''
+      });
+
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Error opening email client:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="contact-page">
       {/* Hero Section */}
@@ -37,7 +119,7 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2>Get In Touch</h2>
+              <h2 className="contact-heading">Get In Touch</h2>
               <p>
                 Al Safa Global General Trading FZ LLC is your trusted partner in procurement 
                 and supply chain solutions. We're here to help you with all your business needs 
@@ -63,8 +145,8 @@ const Contact = () => {
                   <div>
                     <h4>Phone</h4>
                     <p>
-                      <a href="tel:+971501234567" className="contact-link">
-                        +971 50 123 4567
+                      <a href="tel:0097143741969" className="contact-link">
+                        00971 4 3741 969
                       </a>
                     </p>
                     <p>Available during business hours</p>
@@ -81,7 +163,8 @@ const Contact = () => {
                       Compass Building, Al Shohada Road<br />
                       Al Hamra Industrial Zone-FZ<br />
                       P.O. Box 10055<br />
-                      Ras Al Khaimah, United Arab Emirates
+                      Ras Al Khaimah, United Arab Emirates<br />
+                      <a href="tel:0097143741969" style={{ color: 'inherit', textDecoration: 'underline' }}>00971 4 3741 969</a>
                     </p>
                   </div>
                 </div>
@@ -124,48 +207,109 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <h2>Send us a Message</h2>
-              <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+              <p>Fill out the form below and click "Send Message" to open your email client with a pre-filled message.</p>
               
-              <form>
+              {submitStatus === 'success' && (
+                <div className="alert alert-success">
+                  <h3>Email Client Opened!</h3>
+                  <p>Your default email client should have opened with a pre-filled message. Please review and send the email to info@alsafaglobal.com</p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="alert alert-error">
+                  <h3>Something went wrong</h3>
+                  <p>Please try again or contact us directly at info@alsafaglobal.com</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input type="text" placeholder="Your Name *" required />
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Your Name *" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Your Email *" required />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Your Email *" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="text" placeholder="Company Name" />
+                  <input 
+                    type="text" 
+                    name="company"
+                    placeholder="Company Name" 
+                    value={formData.company}
+                    onChange={handleInputChange}
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="tel" placeholder="Phone Number" />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    placeholder="Phone Number" 
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
                 </div>
                 <div className="form-group">
-                  <select>
+                  <select 
+                    name="division"
+                    value={formData.division}
+                    onChange={handleInputChange}
+                    required
+                  >
                     <option value="">Select Division of Interest *</option>
-                    <option value="office-construction">Office, Construction & Infrastructure</option>
-                    <option value="oil-gas">Oil & Gas</option>
-                    <option value="construction-infrastructure">Construction & Infrastructure</option>
-                    <option value="industrial-manufacturing">Industrial & Manufacturing</option>
-                    <option value="aviation-marine">Aviation, Marine & Shipping</option>
-                    <option value="defence">Defence Sector</option>
-                    <option value="general">General Inquiry</option>
+                    <option value="Office, Construction & Infrastructure">Office, Construction & Infrastructure</option>
+                    <option value="Oil & Gas">Oil & Gas</option>
+                    <option value="Construction & Infrastructure">Construction & Infrastructure</option>
+                    <option value="Industrial & Manufacturing">Industrial & Manufacturing</option>
+                    <option value="Aviation & Marine">Aviation, Marine & Shipping</option>
+                    <option value="Defence Sector">Defence Sector</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
                 <div className="form-group">
-                  <select>
+                  <select 
+                    name="inquiryType"
+                    value={formData.inquiryType}
+                    onChange={handleInputChange}
+                    required
+                  >
                     <option value="">Type of Inquiry *</option>
-                    <option value="procurement">Procurement Services</option>
-                    <option value="supply-chain">Supply Chain Solutions</option>
-                    <option value="partnership">Partnership Opportunity</option>
-                    <option value="quotation">Request for Quotation</option>
-                    <option value="general">General Inquiry</option>
+                    <option value="Procurement Services">Procurement Services</option>
+                    <option value="Supply Chain Solutions">Supply Chain Solutions</option>
+                    <option value="Partnership Opportunity">Partnership Opportunity</option>
+                    <option value="Request for Quotation">Request for Quotation</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
                 <div className="form-group">
-                  <textarea placeholder="Please describe your requirements or inquiry in detail *" rows="6" required></textarea>
+                  <textarea 
+                    name="message"
+                    placeholder="Please describe your requirements or inquiry in detail *" 
+                    rows="6" 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Send Message
+                <button 
+                  type="submit" 
+                  className="btn btn-primary"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Opening Email...' : 'Send Message'}
                 </button>
               </form>
             </motion.div>

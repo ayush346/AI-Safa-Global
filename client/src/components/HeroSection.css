@@ -1,26 +1,25 @@
 /* Landing Banner */
 .landing-banner {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  margin-top: 0;
+  padding-top: 60px; /* Reduced from 80px to 60px */
+  /* Optimized for 1920x920 image (aspect ratio 16:10) */
 }
 
 .landing-banner-image {
-  width: 100vw;
+  width: 100%;
   height: auto;
-  max-height: 100vh;
+  display: block;
   object-fit: contain;
   object-position: center;
-  display: block;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  background: var(--white);
+  max-width: 100%;
+  /* Optimized for 1920x920 image - displays at natural size */
+  /* Aspect ratio: 1920:920 = 16:10 (widescreen format) */
 }
 
 .hero-section {
@@ -28,7 +27,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: var(--space-2xl) 0;
+  padding: 3rem 0 2rem; /* Reduced bottom padding from 4rem to 2rem */
   overflow: hidden;
   background: var(--white);
 }
@@ -100,6 +99,16 @@
   font-weight: 400;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   opacity: 0.95;
+  text-align: justify;
+  word-spacing: var(--word-spacing);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
 .hero-actions {
@@ -257,8 +266,67 @@
   color: var(--primary-gold);
 }
 
+/* Mobile-only image display */
+.hero-visual-mobile {
+  display: none; /* Hidden by default on desktop */
+  margin: var(--space-xl) 0;
+}
+
+/* Responsive Design - Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .hero-visual {
+    order: 1; /* Move image after text on mobile */
+    display: none; /* Hide desktop image on mobile */
+  }
+  
+  .hero-text {
+    order: 0; /* Ensure text comes first */
+  }
+  
+  .hero-visual-mobile {
+    display: block; /* Show mobile image on mobile */
+    text-align: center; /* Center the image on mobile */
+  }
+  
+  /* Center the global-procurement.png image on mobile */
+  .hero-visual-mobile .hero-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .hero-visual-mobile .hero-main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-visual-mobile .hero-image {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Hide scroll indicator on mobile */
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
 /* Responsive Design - Tablet (768px and up) */
 @media (min-width: 768px) {
+  .landing-banner {
+    padding-top: 50px; /* Reduced from 70px to 50px */
+  }
+  
+  .landing-banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    /* Optimized for 1920x920 image - no scaling needed */
+  }
+  
   .hero-content {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-3xl);
@@ -312,7 +380,7 @@
 /* Responsive Design - Desktop (992px and up) */
 @media (min-width: 992px) {
   .hero-section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-3xl) 0 1rem; /* Reduced bottom padding from 2rem to 1rem */
   }
   
   .hero-title {
@@ -341,16 +409,38 @@
     max-width: 500px;
     height: 400px;
   }
+  
+  .floating-element {
+    font-size: 2rem;
+    padding: 0.8rem;
+    min-width: 60px;
+    min-height: 60px;
+  }
+  
+  /* Optimize landing banner for large screens */
+  .landing-banner-image {
+    max-width: 1920px; /* Match the image's natural width */
+    margin: 0 auto; /* Center the image */
+  }
 }
 
 /* Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .landing-banner {
-    height: 70vh;
+    width: 100%;
+    padding-top: 40px; /* Reduced from 60px to 40px */
+  }
+  
+  .landing-banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    /* Optimized for 1920x920 image - no scaling needed */
   }
   
   .hero-section {
-    padding: var(--space-xl) 0;
+    padding: 2rem 0 1rem; /* Reduced from 2rem 0 2rem to 2rem 0 1rem */
     min-height: 90vh;
   }
   

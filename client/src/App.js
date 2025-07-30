@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <>
       <Helmet>
         <title>Al Safa Global - Procurement & Supply Chain Solutions</title>
         <meta name="description" content="Al Safa Global General Trading FZ LLC - Your Trusted Partner in Procurement & Supply Chain Solutions. We provide comprehensive procurement, supply chain management, and trading services across the UAE and Middle East." />
@@ -25,13 +25,13 @@ function App() {
         <meta property="og:description" content="Your Trusted Partner in Procurement & Supply Chain Solutions. We provide comprehensive procurement, supply chain management, and trading services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://al-safa-global.vercel.app/" />
-        <meta property="og:image" content="https://al-safa-global.vercel.app/og-image.jpg" />
+        <meta property="og:image" content="https://al-safa-global.vercel.app/images/logo.png" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Al Safa Global - Procurement & Supply Chain Solutions" />
         <meta name="twitter:description" content="Your Trusted Partner in Procurement & Supply Chain Solutions. We provide comprehensive procurement, supply chain management, and trading services." />
-        <meta name="twitter:image" content="https://al-safa-global.vercel.app/og-image.jpg" />
+        <meta name="twitter:image" content="https://al-safa-global.vercel.app/images/logo.png" />
       </Helmet>
       
       <ScrollToTop />
@@ -47,7 +47,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 

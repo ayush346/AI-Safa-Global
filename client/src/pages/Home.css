@@ -12,12 +12,19 @@
 .section-subtitle {
   color: var(--text-secondary);
   font-size: var(--text-lg);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg); /* Reduced from var(--space-xl) */
   font-weight: 500;
+  text-align: justify;
+  word-spacing: var(--word-spacing);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .features-section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-2xl) 0; /* Reduced from var(--space-3xl) 0 */
   background: var(--white);
 }
 
@@ -25,11 +32,11 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xl);
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl); /* Reduced from var(--space-2xl) */
 }
 
 .divisions-section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-2xl) 0; /* Reduced from var(--space-3xl) 0 */
   background: var(--white);
 }
 
@@ -37,11 +44,11 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xl);
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl); /* Reduced from var(--space-2xl) */
 }
 
 .about-preview-section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-sm) 0 var(--space-2xl) 0; /* Reduced from var(--space-md) 0 var(--space-2xl) 0 */
   background: var(--white);
 }
 
@@ -64,10 +71,27 @@
   line-height: 1.6;
   margin-bottom: var(--space-lg);
   font-weight: 400;
+  text-align: justify;
+  word-spacing: var(--word-spacing);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .about-features {
-  margin: var(--space-xl) 0;
+  margin: var(--space-lg) 0; /* Reduced from var(--space-xl) 0 */
+}
+
+.about-cta-button {
+  text-align: center;
+  margin-top: var(--space-lg); /* Reduced from var(--space-xl) */
+}
+
+.about-cta-button .btn {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .feature-item {
@@ -106,8 +130,15 @@
   font-weight: 600;
   border: 2px solid rgba(245, 158, 11, 0.3);
   font-size: var(--text-base);
-  min-width: 100px;
+  min-width: 160px;
+  min-height: 50px;
   backdrop-filter: blur(5px);
+  width: 160px;
+  height: 50px;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .floating-card svg {
@@ -167,6 +198,151 @@
   }
 }
 
+/* Responsive Design - Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .about-text h2 {
+    text-align: center;
+  }
+  
+  .about-text .btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  /* New button positioning for mobile */
+  .about-cta-button {
+    order: 2;
+    text-align: center;
+    margin-top: 5rem; /* Increased from 4rem to 5rem for more gap */
+  }
+  
+  .about-cta-button .btn {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  /* Reduce white space above floating cards in mobile */
+  .about-preview-section {
+    padding: 0 0 var(--space-2xl) 0; /* Removed top padding to eliminate white space above floating cards */
+  }
+  
+  /* Reduce gap between content elements in mobile */
+  .about-preview-content {
+    gap: var(--space-md); /* Reduced from var(--space-2xl) to var(--space-md) */
+  }
+  
+  /* Enhanced floating cards for mobile */
+  .about-preview-section .floating-card,
+  .about-image .floating-card,
+  .image-container .floating-card {
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    animation: none !important; /* Remove floating animation on mobile */
+    will-change: transform;
+    transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
+    /* Initial grey state for scroll transition */
+    background: #9ca3af !important; /* Grey color */
+    color: #6b7280 !important; /* Darker grey text */
+    border-color: #9ca3af !important; /* Grey border */
+    transition: all 0.6s ease-in-out !important;
+  }
+  
+  /* Transition to original color when scrolled into view */
+  .about-preview-section .floating-card.scrolled,
+  .about-image .floating-card.scrolled,
+  .image-container .floating-card.scrolled {
+    background: var(--primary-gold) !important; /* Original gold color */
+    color: var(--text-dark) !important; /* Original dark text */
+    border-color: rgba(245, 158, 11, 0.3) !important; /* Original border */
+  }
+  
+  .about-preview-section .card-1,
+  .about-image .card-1,
+  .image-container .card-1 {
+    top: 8% !important;
+    animation: none !important; /* Remove floating animation on mobile */
+  }
+  
+  .about-preview-section .card-2,
+  .about-image .card-2,
+  .image-container .card-2 {
+    top: 32% !important;
+    animation: none !important; /* Remove floating animation on mobile */
+  }
+  
+  .about-preview-section .card-3,
+  .about-image .card-3,
+  .image-container .card-3 {
+    top: 56% !important;
+    animation: none !important; /* Remove floating animation on mobile */
+  }
+  
+  .about-preview-section .card-4,
+  .about-image .card-4,
+  .image-container .card-4 {
+    top: 80% !important;
+    animation: none !important; /* Remove floating animation on mobile */
+  }
+  
+  .about-preview-section .card-5,
+  .about-image .card-5,
+  .image-container .card-5 {
+    top: 104% !important;
+    animation: none !important; /* Remove floating animation on mobile */
+  }
+  
+  /* Individual animations for each card with proper transform */
+  @keyframes floatCard1 {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-10px) translateZ(0); 
+    }
+  }
+  
+  @keyframes floatCard2 {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-10px) translateZ(0); 
+    }
+  }
+  
+  @keyframes floatCard3 {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-10px) translateZ(0); 
+    }
+  }
+  
+  @keyframes floatCard4 {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-10px) translateZ(0); 
+    }
+  }
+  
+  @keyframes floatCard5 {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-10px) translateZ(0); 
+    }
+  }
+}
+
 /* Responsive Design - Tablet (768px and up) */
 @media (min-width: 768px) {
   .section-header h2 {
@@ -194,14 +370,17 @@
   .floating-card {
     padding: var(--space-md) var(--space-lg);
     font-size: var(--text-base);
-    min-width: 110px;
+    min-width: 160px;
+    min-height: 50px;
+    width: 160px;
+    height: 50px;
   }
 }
 
 /* Responsive Design - Desktop (992px and up) */
 @media (min-width: 992px) {
   .section-header h2 {
-    font-size: 2.5rem;
+    font-size: var(--text-4xl);
   }
   
   .features-grid {
@@ -223,7 +402,15 @@
   .floating-card {
     padding: 1.2rem 1.5rem;
     font-size: 1.1rem;
-    min-width: 120px;
+    min-width: 160px;
+    min-height: 50px;
+    width: 160px;
+    height: 50px;
+  }
+  
+  /* Reduce gap between Hero and About sections in laptop layout */
+  .about-preview-section {
+    padding: 0 0 var(--space-2xl) 0; /* Removed top padding completely to eliminate gap */
   }
 }
 
@@ -239,7 +426,7 @@
   .features-section,
   .divisions-section,
   .about-preview-section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-sm) 0 var(--space-lg) 0; /* Reduced from var(--space-lg) 0 to var(--space-sm) 0 var(--space-lg) 0 */
   }
   
   .section-header h2 {
@@ -269,22 +456,130 @@
   .floating-card {
     padding: var(--space-sm) var(--space-md);
     font-size: var(--text-sm);
-    min-width: 80px;
+    min-width: 140px;
+    min-height: 45px;
+    width: 140px;
+    height: 45px;
+    will-change: transform;
+    transform: translateZ(0); /* Hardware acceleration */
   }
   
   .floating-card svg {
     font-size: var(--text-base);
   }
+  
+  /* Ensure floating animations work on small mobile */
+  .about-preview-section .floating-card,
+  .about-image .floating-card,
+  .image-container .floating-card {
+    animation: none !important; /* Remove floating animation on small mobile */
+    will-change: transform;
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+  
+  .about-preview-section .card-1,
+  .about-image .card-1,
+  .image-container .card-1 {
+    animation: none !important; /* Remove floating animation on small mobile */
+  }
+  
+  .about-preview-section .card-2,
+  .about-image .card-2,
+  .image-container .card-2 {
+    animation: none !important; /* Remove floating animation on small mobile */
+  }
+  
+  .about-preview-section .card-3,
+  .about-image .card-3,
+  .image-container .card-3 {
+    animation: none !important; /* Remove floating animation on small mobile */
+  }
+  
+  .about-preview-section .card-4,
+  .about-image .card-4,
+  .image-container .card-4 {
+    animation: none !important; /* Remove floating animation on small mobile */
+  }
+  
+  .about-preview-section .card-5,
+  .about-image .card-5,
+  .image-container .card-5 {
+    animation: none !important; /* Remove floating animation on small mobile */
+  }
+  
+  /* Fix floating cards order on mobile - show them above the Learn More About Us button */
+  .about-preview-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-text {
+    order: 3; /* Move text to bottom */
+  }
+  
+  .about-image {
+    order: 1; /* Move floating cards to top */
+  }
+  
+  .about-cta-button {
+    order: 2; /* Button appears right after floating cards */
+    text-align: center;
+    margin-top: 4rem; /* Increased from 3rem to 4rem for more gap */
+  }
 }
 
 /* Touch Device Optimizations */
 @media (hover: none) and (pointer: coarse) {
+  /* Keep floating animations on touch devices but optimize for performance */
   .floating-card {
-    animation: none;
+    /* Remove the animation: none to allow floating animations */
+    will-change: transform;
+    transform: translateZ(0); /* Hardware acceleration */
   }
   
   .floating-card:hover {
     transform: none;
+  }
+  
+  /* Ensure mobile floating animations work on touch devices */
+  @media (max-width: 767px) {
+    .about-preview-section .floating-card,
+    .about-image .floating-card,
+    .image-container .floating-card {
+      animation-duration: 3s !important;
+      animation-timing-function: ease-in-out !important;
+      animation-iteration-count: infinite !important;
+    }
+    
+    .about-preview-section .card-1,
+    .about-image .card-1,
+    .image-container .card-1 {
+      animation: floatCard1 3s ease-in-out infinite !important;
+    }
+    
+    .about-preview-section .card-2,
+    .about-image .card-2,
+    .image-container .card-2 {
+      animation: floatCard2 3s ease-in-out infinite 0.5s !important;
+    }
+    
+    .about-preview-section .card-3,
+    .about-image .card-3,
+    .image-container .card-3 {
+      animation: floatCard3 3s ease-in-out infinite 1s !important;
+    }
+    
+    .about-preview-section .card-4,
+    .about-image .card-4,
+    .image-container .card-4 {
+      animation: floatCard4 3s ease-in-out infinite 1.5s !important;
+    }
+    
+    .about-preview-section .card-5,
+    .about-image .card-5,
+    .image-container .card-5 {
+      animation: floatCard5 3s ease-in-out infinite 2s !important;
+    }
   }
 }
 

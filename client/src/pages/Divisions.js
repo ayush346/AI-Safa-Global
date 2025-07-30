@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import './Divisions.css';
 
 const Divisions = () => {
+  const location = useLocation();
+
+  // Scroll to specific section based on URL hash or query parameter
+  useEffect(() => {
+    const scrollToSection = () => {
+      // Check for hash in URL (e.g., #office-construction)
+      const hash = location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }, 100);
+        }
+      }
+      
+      // Check for query parameter (e.g., ?section=office-construction)
+      const urlParams = new URLSearchParams(location.search);
+      const section = urlParams.get('section');
+      if (section) {
+        const element = document.getElementById(section);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }, 100);
+        }
+      }
+    };
+
+    scrollToSection();
+  }, [location]);
+
   const divisions = [
     {
+      id: "office-construction",
       title: "Office, Construction & Infrastructure",
       description: "Comprehensive sourcing for building materials, tools, safety gear, MEP systems, IT hardware/software, and site essentials.",
       items: [
@@ -18,6 +58,7 @@ const Divisions = () => {
       ]
     },
     {
+      id: "oil-gas",
       title: "Oil & Gas",
       description: "Supply chain solutions for drilling, production, maintenance, safety, and instrumentation needs (upstream & downstream).",
       items: [
@@ -30,6 +71,7 @@ const Divisions = () => {
       ]
     },
     {
+      id: "construction-infrastructure",
       title: "Construction & Infrastructure",
       description: "Comprehensive sourcing for building materials, tools, safety gear, MEP systems, IT hardware/software, and site essentials.",
       items: [
@@ -43,6 +85,7 @@ const Divisions = () => {
       ]
     },
     {
+      id: "industrial-manufacturing",
       title: "Industrial & Manufacturing",
       description: "Providing MRO supplies, automation components, PPE, bearings, motors, spare parts, and factory-grade consumables.",
       items: [
@@ -56,6 +99,7 @@ const Divisions = () => {
       ]
     },
     {
+      id: "aviation-marine",
       title: "Aviation, Marine & Shipping",
       description: "Sourcing engine parts, navigation equipment, deck machinery, safety gear, paints, coatings, and vessel maintenance items.",
       items: [
@@ -69,6 +113,7 @@ const Divisions = () => {
       ]
     },
     {
+      id: "defence-sector",
       title: "Defence Sector",
       description: "Discreet and reliable sourcing of tactical gear, technical equipment, uniforms, field supplies, and maintenance parts for military/government entities.",
       items: [
@@ -114,6 +159,7 @@ const Divisions = () => {
           {divisions.map((division, index) => (
             <motion.div
               key={division.title}
+              id={division.id}
               className="division-section"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

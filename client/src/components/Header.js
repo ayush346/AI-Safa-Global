@@ -51,7 +51,16 @@ const Header = () => {
             <Link to="/">
               <div className="logo-container">
                 <div className="logo-icon">
-                  <img src="/images/logo.png" alt="Al Safa Global Logo" className="logo-image" />
+                  <img 
+                    src={process.env.PUBLIC_URL + "/images/logo.png"} 
+                    alt="Al Safa Global Logo" 
+                    className="logo-image"
+                    onLoad={() => console.log('Logo loaded successfully')}
+                    onError={(e) => {
+                      console.error('Error loading logo:', e);
+                      console.error('Attempted URL:', process.env.PUBLIC_URL + "/images/logo.png");
+                    }}
+                  />
                 </div>
                 <div className="logo-text-container">
                   <span className="company-name">Al Safa Global</span>

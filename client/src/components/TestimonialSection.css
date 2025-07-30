@@ -10,6 +10,10 @@
   font-weight: 800;
 }
 
+.section-header .section-subtitle {
+  text-align: center !important;
+}
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -43,12 +47,60 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Enhanced testimonial text justification */
+.testimonial-card .testimonial-text,
+.testimonial-section .testimonial-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1;
+  font-feature-settings: "liga" 1, "kern" 1;
+  /* Additional properties for better text flow */
+  white-space: normal;
+  /* Remove enhanced hyphenation settings */
+  /* Remove language-specific hyphenation */
+  /* Additional spacing control */
+  text-indent: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .testimonial-text {
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: var(--space-lg);
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1;
+  font-feature-settings: "liga" 1, "kern" 1;
+  /* Additional properties for better text flow */
+  white-space: normal;
+  /* Remove enhanced hyphenation settings */
+  /* Remove language-specific hyphenation */
+  /* Additional spacing control */
+  text-indent: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .testimonial-author h4 {
@@ -63,6 +115,10 @@
   color: var(--text-muted);
   font-size: var(--text-sm);
   font-weight: 500;
+}
+
+.testimonial-author {
+  margin-top: var(--space-lg);
 }
 
 /* Responsive Design - Tablet (768px and up) */
@@ -144,6 +200,25 @@
   .testimonial-text {
     font-size: var(--text-sm);
     margin-bottom: var(--space-md);
+    text-align: left;
+    word-spacing: normal;
+    letter-spacing: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    -moz-hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "liga" 1, "kern" 1;
+    font-feature-settings: "liga" 1, "kern" 1;
+    white-space: normal;
+    /* Remove enhanced hyphenation settings for mobile */
+    /* Remove language-specific hyphenation */
+    /* Additional spacing control */
+    text-indent: 0;
+    margin: 0;
+    padding: 0;
   }
   
   .testimonial-author h4 {
