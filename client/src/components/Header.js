@@ -86,14 +86,6 @@ const Header = () => {
                     className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
                   >
                     {item.name}
-                    {isActive(item.path) && (
-                      <motion.div 
-                        className="active-indicator"
-                        layoutId="activeIndicator"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
-                    )}
                   </Link>
                 </motion.li>
               ))}

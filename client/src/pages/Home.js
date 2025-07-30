@@ -261,6 +261,15 @@ const Home = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+              {/* Company overview image above floating cards */}
+              <div className="company-image-wrapper">
+                <img 
+                  src="/images/company-overview.jpg" 
+                  alt="Al Safa Global Company Overview" 
+                  className="company-overview-image"
+                />
+              </div>
+              
               <div className="image-container">
                 <div className={`floating-card card-1 ${cardsScrolled.card1 ? 'scrolled' : ''}`}>
                   <FiTrendingUp />

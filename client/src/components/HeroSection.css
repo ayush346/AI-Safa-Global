@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 0;
-  padding-top: 60px; /* Reduced from 80px to 60px */
+  padding-top: 90px; /* Increased to show full image without cropping */
   /* Optimized for 1920x920 image (aspect ratio 16:10) */
 }
 
@@ -89,6 +89,29 @@
   color: var(--primary-gold-light);
   margin-bottom: 3rem; /* Large gap after subtitle */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle-stylish {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary); /* Black text color */
+  margin-top: -1rem; /* Move text closer to title */
+  margin-bottom: 2.5rem; /* Gap after stylish subtitle */
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+}
+
+.gold-accent {
+  color: var(--primary-gold);
+  font-weight: 700;
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
 }
 
 .hero-description {
@@ -332,7 +355,7 @@
 /* Responsive Design - Tablet (768px and up) */
 @media (min-width: 768px) {
   .landing-banner {
-    padding-top: 50px; /* Reduced from 70px to 50px */
+    padding-top: 80px; /* Increased for tablet to show full image */
   }
   
   .landing-banner-image {
@@ -360,6 +383,13 @@
   
   .hero-subtitle {
     font-size: var(--text-xl);
+  }
+  
+  .hero-subtitle-stylish {
+    font-size: var(--text-lg);
+    margin-top: -1rem; /* Move text closer to title */
+    margin-bottom: 2rem;
+    letter-spacing: 0.3px;
   }
   
   .hero-description {
@@ -401,6 +431,10 @@
   
   .hero-title {
     font-size: var(--text-5xl);
+  }
+  
+  .hero-subtitle-stylish {
+    text-align: left; /* Align with paragraph below */
   }
   
   .hero-image-container {
@@ -469,6 +503,13 @@
   
   .hero-subtitle {
     font-size: var(--text-base);
+  }
+  
+  .hero-subtitle-stylish {
+    font-size: var(--text-base);
+    margin-top: -1rem; /* Move text closer to title */
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.2px;
   }
   
   .hero-description {

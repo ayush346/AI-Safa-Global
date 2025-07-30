@@ -81,6 +81,23 @@ const Footer = () => {
               <li>Defence Sector</li>
             </ul>
           </motion.div>
+
+          {/* Footer Image */}
+          <motion.div 
+            className="footer-section footer-image-section"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="footer-image-wrapper">
+              <img 
+                src="/images/footer-image.jpg" 
+                alt="Al Safa Global" 
+                className="footer-image"
+              />
+            </div>
+          </motion.div>
         </div>
 
         {/* Footer Bottom */}

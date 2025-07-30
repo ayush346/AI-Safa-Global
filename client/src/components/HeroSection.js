@@ -47,6 +47,15 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
+              className="hero-subtitle-stylish"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Your Trusted Partner in Procurement and Supply Chain Solutions
+            </motion.p>
+            
+            <motion.p 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -87,7 +96,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 1.0 }}
             >
               <Link to="/contact" className="btn btn-primary btn-large">
-                Get Started Today
+                Contact Us
                 <FiArrowRight />
               </Link>
               

@@ -200,7 +200,7 @@ const Divisions = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2>Why Choose Our Divisions?</h2>
+            <h2>Why Choose Us?</h2>
             <div className="info-grid">
               <div className="info-item">
                 <h3>Specialized Expertise</h3>

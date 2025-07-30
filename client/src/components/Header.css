@@ -159,16 +159,7 @@
   background: var(--light-blue);
 }
 
-.active-indicator {
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 3px;
-  background: var(--primary-blue);
-  border-radius: var(--radius-full);
-}
+/* Active indicator styles removed - no more moving line animation */
 
 /* Header CTA */
 .header-cta {
