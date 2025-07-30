@@ -141,9 +141,7 @@ const Divisions = () => {
             <h1 className="gradient-text">
               <span className="gold-text">Al Safa Global</span> Divisions
             </h1>
-            <p className="hero-subtitle">
-              Al Safa Global specializes in a wide array of supply and service divisions
-            </p>
+
             <p>
               We provide comprehensive procurement and supply chain solutions across multiple industries, 
               ensuring our clients receive the highest quality products and services tailored to their 

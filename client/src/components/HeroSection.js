@@ -11,7 +11,7 @@ const HeroSection = () => {
       <section className="landing-banner">
         <img 
           src={process.env.PUBLIC_URL + "/images/hero-landing-image.jpg"} 
-          alt="Al Safa Global - Your Trusted Partner in Procurement & Supply Chain Solutions" 
+                              alt="Al Safa Global - Global Procurement Solutions" 
           className="landing-banner-image"
           onLoad={() => console.log('Hero landing image loaded successfully from:', process.env.PUBLIC_URL + "/images/hero-landing-image.jpg")}
           onError={(e) => {
@@ -45,15 +45,6 @@ const HeroSection = () => {
               Welcome to{' '}
               <span className="gradient-text">Al Safa Global</span>
             </motion.h1>
-            
-            <motion.p 
-              className="hero-subtitle"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Your Trusted Partner in Procurement & Supply Chain Solutions
-            </motion.p>
             
             <motion.p 
               initial={{ opacity: 0, y: 30 }}

@@ -26,7 +26,6 @@ const Footer = () => {
           >
             <div className="footer-logo">
               <h3>Al Safa Global</h3>
-              <p>Your Trusted Partner in Procurement & Supply Chain Solutions</p>
             </div>
             <div className="footer-contact">
               <div className="contact-item">

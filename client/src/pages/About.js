@@ -125,9 +125,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="gradient-text">About <span className="gold-text">Al Safa Global</span></h1>
-            <p className="hero-subtitle">
-              Your Trusted Partner in Procurement & Supply Chain Solutions
-            </p>
+
             <p>
               Al Safa Global General Trading FZ LLC is a UAE-based company specializing in comprehensive 
               procurement and supply chain solutions. Headquartered in Ras Al Khaimah, we proudly serve 
