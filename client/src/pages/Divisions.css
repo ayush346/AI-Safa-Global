@@ -13,7 +13,7 @@
 .divisions-hero {
   background: var(--white);
   color: var(--text-primary);
-  padding: 6rem 0 4rem; /* Match contact page padding for consistency */
+  padding: 6rem 0 0.2rem; /* Minimal bottom padding */
   text-align: center;
 }
 
@@ -27,6 +27,10 @@
 
 .divisions-hero-content h1 .gold-text {
   color: var(--primary-gold) !important;
+}
+
+.divisions-hero-content p:last-child {
+  margin-bottom: 0; /* No gap - removed completely */
 }
 
 .hero-subtitle {

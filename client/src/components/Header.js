@@ -107,7 +107,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/quote" className="btn btn-primary">
               Get Quote
             </Link>
           </motion.div>
@@ -180,7 +180,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <Link to="/contact" className="btn btn-primary btn-large">
+                  <Link to="/quote" className="btn btn-primary btn-large">
                     Get Quote
                   </Link>
                 </motion.div>

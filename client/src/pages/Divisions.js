@@ -144,7 +144,7 @@ const Divisions = () => {
             <p className="hero-subtitle">
               Al Safa Global specializes in a wide array of supply and service divisions
             </p>
-            <p className="hero-description">
+            <p>
               We provide comprehensive procurement and supply chain solutions across multiple industries, 
               ensuring our clients receive the highest quality products and services tailored to their 
               specific sector requirements.

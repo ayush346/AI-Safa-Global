@@ -5,11 +5,7 @@ import {
   FiMail, 
   FiMapPin, 
   FiPhone, 
-  FiGlobe,
-  FiFacebook,
-  FiTwitter,
-  FiLinkedin,
-  FiInstagram
+  FiGlobe
 } from 'react-icons/fi';
 import './Footer.css';
 
@@ -85,51 +81,6 @@ const Footer = () => {
               <li>Aviation & Marine</li>
               <li>Defence Sector</li>
             </ul>
-          </motion.div>
-
-          {/* Social Media */}
-          <motion.div 
-            className="footer-section"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h4>Connect With Us</h4>
-            <div className="social-links">
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiFacebook />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiTwitter />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiLinkedin />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiInstagram />
-              </motion.a>
-            </div>
           </motion.div>
         </div>
 

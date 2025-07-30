@@ -128,54 +128,13 @@ const About = () => {
             <p className="hero-subtitle">
               Your Trusted Partner in Procurement & Supply Chain Solutions
             </p>
-            <p className="hero-description">
+            <p>
               Al Safa Global General Trading FZ LLC is a UAE-based company specializing in comprehensive 
               procurement and supply chain solutions. Headquartered in Ras Al Khaimah, we proudly serve 
               businesses and projects within the UAE and internationally — across the Construction, 
               Industrial, Marine, Aerospace, Defence, IT, and Office Supplies sectors.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-      <section className="company-overview">
-        <div className="container">
-          <div className="overview-content">
-            <motion.div 
-              className="overview-text"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2>Our Story</h2>
-              <p>
-                We partner with globally recognized brands and supply high-quality products that meet 
-                international standards. Whether supporting complex industrial projects, critical defense 
-                requirements, specialized marine and aerospace needs, or everyday office and IT demands, 
-                we ensure reliable and efficient sourcing for our clients worldwide.
-              </p>
-              <p>
-                Our strength lies in delivering cost-effective, timely, and dependable procurement 
-                solutions, backed by a deep understanding of market dynamics and logistical challenges. 
-                We position ourselves as a trusted partner — committed to helping clients achieve 
-                operational efficiency, project success, and sustainable growth.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="overview-image"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="image-container">
-                {/* Floating elements removed */}
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 

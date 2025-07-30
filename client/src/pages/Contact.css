@@ -13,7 +13,7 @@
 .contact-hero {
   background: var(--white);
   color: var(--text-primary);
-  padding: 6rem 0 4rem; /* Match divisions page exactly */
+  padding: 6rem 0 1.5rem; /* Balanced bottom padding */
   text-align: center;
 }
 
@@ -42,10 +42,11 @@
   -ms-hyphens: auto;
   overflow-wrap: break-word;
   word-break: normal;
+  margin-bottom: 0; /* Remove any default margin */
 }
 
 .contact-content {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-md) 0;
   background: var(--white);
 }
 
