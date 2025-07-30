@@ -93,6 +93,13 @@
   }
 }
 
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 767px) {
+  .division-icon {
+    font-size: var(--text-2xl);
+  }
+}
+
 /* Responsive Design - Small Mobile */
 @media (max-width: 480px) {
   .division-card {
@@ -100,7 +107,7 @@
   }
   
   .division-icon {
-    font-size: 1.75rem;
+    font-size: var(--text-2xl); /* Reduced from 1.75rem to match max mobile text size */
   }
   
   .division-card h3 {

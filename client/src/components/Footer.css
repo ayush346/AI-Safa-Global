@@ -215,6 +215,13 @@
   }
 }
 
+/* Responsive Design - Mobile (767px and below) */
+@media (max-width: 767px) {
+  .footer-logo h3 {
+    font-size: var(--text-2xl);
+  }
+}
+
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .footer {
@@ -230,7 +237,7 @@
   }
   
   .footer-logo h3 {
-    font-size: var(--text-lg);
+    font-size: var(--text-2xl);
   }
   
   .footer-logo p {

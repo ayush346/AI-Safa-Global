@@ -172,6 +172,13 @@
   }
 }
 
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 767px) {
+  .section-header h2 {
+    font-size: var(--text-2xl);
+  }
+}
+
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .testimonial-section {
@@ -192,7 +199,7 @@
   }
   
   .testimonial-card::before {
-    font-size: 2.5rem;
+    font-size: var(--text-2xl); /* Reduced from 2.5rem to match max mobile text size */
     top: -8px;
     left: 15px;
   }
