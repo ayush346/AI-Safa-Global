@@ -13,7 +13,7 @@
 .divisions-hero {
   background: var(--white);
   color: var(--text-primary);
-  padding: 5rem 0 4rem; /* Reduced top padding to decrease white space */
+  padding: 6rem 0 4rem; /* Match contact page padding for consistency */
   text-align: center;
 }
 
@@ -245,7 +245,7 @@
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .divisions-hero {
-    padding: 3.5rem 0 2rem; /* Reduced mobile padding to decrease white space */
+    padding: 4rem 0 2rem; /* Match contact page mobile padding for consistency */
   }
   
   .divisions-hero-content h1 {

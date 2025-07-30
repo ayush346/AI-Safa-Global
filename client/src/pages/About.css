@@ -22,7 +22,7 @@
 .about-hero {
   background: var(--white);
   color: var(--text-primary);
-  padding: 7rem 0 4rem; /* Increased top padding to fix cropping issue */
+  padding: 6rem 0 4rem; /* Match contact page spacing for consistency */
   text-align: center;
 }
 
@@ -700,7 +700,7 @@
 /* Responsive Design - Tablet (768px and up) */
 @media (min-width: 768px) {
   .about-hero {
-    padding: 6rem 0 3rem; /* Adjusted to maintain proper spacing on tablet */
+    padding: 5rem 0 3rem; /* Match other pages for consistent spacing */
   }
   
   .section-header h2 {
@@ -829,7 +829,7 @@
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .about-hero {
-    padding: 5rem 0 2rem; /* Increased mobile padding to fix cropping issue */
+    padding: 4rem 0 2rem; /* Match other pages for consistent mobile spacing */
   }
   
   .about-hero-content h1 {
