@@ -222,6 +222,10 @@
     font-size: 1.8rem;
   }
 
+  .division-items-container h3 {
+    font-size: 1.2rem; /* Smaller than division h2 (1.8rem) */
+  }
+
   .division-items {
     grid-template-columns: 1fr;
   }
@@ -263,6 +267,10 @@
   
   .division-header h2 {
     font-size: var(--text-xl); /* Ensure division headings are smaller than main headings */
+  }
+  
+  .division-items-container h3 {
+    font-size: 1rem; /* Smaller than division h2 (var(--text-xl) = 1.25rem) */
   }
   
   .info-content h2 {
