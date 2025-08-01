@@ -349,6 +349,42 @@
   }
 }
 
+/* Specific fix for aviation-marine description word spacing inconsistency */
+@media (max-width: 767px) {
+  #aviation-marine .division-description {
+    text-align: justify !important;
+    word-spacing: 0.1em !important;
+    letter-spacing: 0.01em !important;
+    text-justify: inter-character !important;
+    -webkit-text-justify: inter-character !important;
+    -moz-text-justify: inter-character !important;
+    hyphens: manual !important;
+    -webkit-hyphens: manual !important;
+    -ms-hyphens: manual !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #aviation-marine .division-description {
+    text-align: justify !important;
+    word-spacing: 0.08em !important;
+    letter-spacing: 0.008em !important;
+    text-justify: inter-character !important;
+    -webkit-text-justify: inter-character !important;
+    -moz-text-justify: inter-character !important;
+    hyphens: manual !important;
+    -webkit-hyphens: manual !important;
+    -ms-hyphens: manual !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    font-size: 0.95rem !important;
+  }
+}
+
 /* Universal mobile word spacing for consistent display */
 @media screen and (max-width: 768px) {
   .division-section .division-description {
