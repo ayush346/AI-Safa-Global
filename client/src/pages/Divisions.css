@@ -248,6 +248,25 @@
   .divisions-hero-content h1 {
     font-size: var(--text-2xl);
   }
+
+  /* Mobile word spacing consistency for specific division descriptions */
+  #oil-gas .division-description,
+  #industrial-manufacturing .division-description,
+  #defence-sector .division-description {
+    text-align: justify;
+    word-spacing: 0.12em;
+    letter-spacing: 0.008em;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    text-justify: inter-word;
+    -webkit-text-justify: inter-word;
+    -moz-text-justify: inter-word;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.65;
+  }
 }
 
 /* Responsive Design - Small Mobile (480px and below) */
@@ -275,5 +294,24 @@
   
   .info-content h2 {
     font-size: var(--text-xl); /* Ensure info headings are smaller than main headings */
+  }
+
+  /* Mobile word spacing consistency for specific division descriptions */
+  #oil-gas .division-description,
+  #industrial-manufacturing .division-description,
+  #defence-sector .division-description {
+    text-align: justify;
+    word-spacing: 0.15em;
+    letter-spacing: 0.01em;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    text-justify: inter-word;
+    -webkit-text-justify: inter-word;
+    -moz-text-justify: inter-word;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.7;
   }
 } 
