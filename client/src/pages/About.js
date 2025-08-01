@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
@@ -22,11 +22,21 @@ const About = () => {
     triggerOnce: true
   });
 
+  // State to track if brands have been animated in this page visit
+  const [brandsAnimated, setBrandsAnimated] = useState(false);
+
   // Add intersection observer for brand items
   const [brandsRef, brandsInView] = useInView({
     threshold: 0.2,
     triggerOnce: false
   });
+
+  // Effect to handle brand animation trigger - only once per page visit
+  useEffect(() => {
+    if (brandsInView && !brandsAnimated) {
+      setBrandsAnimated(true);
+    }
+  }, [brandsInView, brandsAnimated]);
 
   const values = [
     {
@@ -432,9 +442,9 @@ const About = () => {
             {brands.map((brand, index) => (
               <motion.div
                 key={brand.name}
-                className={`brand-item ${brandsInView ? 'in-view' : ''}`}
+                className={`brand-item ${brandsAnimated ? 'in-view' : ''}`}
                 initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                animate={brandsAnimated ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
               >

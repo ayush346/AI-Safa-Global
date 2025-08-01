@@ -9,18 +9,29 @@ const Divisions = () => {
   // Scroll to specific section based on URL hash or query parameter
   useEffect(() => {
     const scrollToSection = () => {
+      // Helper function to scroll with header offset
+      const scrollToElementWithOffset = (element) => {
+        if (element) {
+          setTimeout(() => {
+            // Calculate responsive header height based on screen size
+            const isMobile = window.innerWidth <= 768;
+            const headerHeight = isMobile ? 90 : 100; // Slightly less for mobile, more for desktop
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      };
+
       // Check for hash in URL (e.g., #office-construction)
       const hash = location.hash;
       if (hash) {
         const element = document.querySelector(hash);
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
-            });
-          }, 100);
-        }
+        scrollToElementWithOffset(element);
       }
       
       // Check for query parameter (e.g., ?section=office-construction)
@@ -28,14 +39,7 @@ const Divisions = () => {
       const section = urlParams.get('section');
       if (section) {
         const element = document.getElementById(section);
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
-            });
-          }, 100);
-        }
+        scrollToElementWithOffset(element);
       }
     };
 
