@@ -237,6 +237,10 @@
   .info-content h2 {
     font-size: 2rem;
   }
+
+  .info-item h3 {
+    font-size: 1.2rem; /* Subheadings smaller than main heading */
+  }
 }
 
 /* Responsive Design - Mobile (768px and below) */
@@ -295,7 +299,11 @@
   }
   
   .info-content h2 {
-    font-size: var(--text-xl); /* Ensure info headings are smaller than main headings */
+    font-size: var(--text-2xl); /* Why Choose Us? heading should be larger */
+  }
+
+  .info-item h3 {
+    font-size: 1.1rem; /* Subheadings smaller than main heading */
   }
 
   /* Mobile word spacing consistency for specific division descriptions */
