@@ -79,8 +79,11 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.75;
   
-  /* Word Spacing - Consistent across entire project */
-  --word-spacing: 0.02em;
+  /* Word Spacing - Tighter spacing for better justification */
+  --word-spacing: -0.01em;
+  --word-spacing-tight: -0.03em;
+  --word-spacing-normal: 0;
+  --word-spacing-loose: 0.02em;
   
   /* Transitions */
   --transition-fast: 0.15s ease-in-out;
@@ -172,10 +175,25 @@ p {
   font-weight: 400;
   word-wrap: break-word;
   text-align: justify;
+  text-align-last: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1;
+  font-feature-settings: "liga" 1, "kern" 1;
+  /* Enhanced hyphenation for better word distribution */
+  -webkit-hyphenate-limit-before: 2;
+  -webkit-hyphenate-limit-after: 2;
+  -webkit-hyphenate-limit-chars: 5 2 2;
+  -ms-hyphenate-limit-chars: 5 2 2;
+  hyphenate-limit-chars: 5 2 2;
+  -webkit-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
 }
 
 /* Specific testimonial text justification */
@@ -196,13 +214,21 @@ p {
   white-space: normal;
 }
 
-/* Language-specific hyphenation */
-[lang="en"] {
-  -webkit-hyphenate-limit-before: 3;
-  -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-chars: 6 3 3;
-  -ms-hyphenate-limit-chars: 6 3 3;
-  hyphenate-limit-chars: 6 3 3;
+/* Enhanced language-specific hyphenation for better word breaking */
+[lang="en"],
+html[lang="en"],
+body[lang="en"] {
+  -webkit-hyphenate-limit-before: 2;
+  -webkit-hyphenate-limit-after: 2;
+  -webkit-hyphenate-limit-chars: 4 2 2;
+  -ms-hyphenate-limit-chars: 4 2 2;
+  hyphenate-limit-chars: 4 2 2;
+  -webkit-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-zone: 8%;
+  -ms-hyphenate-limit-zone: 8%;
+  hyphenate-limit-zone: 8%;
 }
 
 /* Handle long words and technical terms */
@@ -643,9 +669,10 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   }
 } 
 
-/* Text Utilities */
+/* Enhanced Text Justification Utilities */
 .text-justify {
   text-align: justify;
+  text-align-last: left;
   word-spacing: var(--word-spacing);
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -655,26 +682,119 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   text-rendering: optimizeLegibility;
   -webkit-font-feature-settings: "liga" 1, "kern" 1;
   font-feature-settings: "liga" 1, "kern" 1;
+  /* Enhanced hyphenation controls */
+  -webkit-hyphenate-limit-before: 2;
+  -webkit-hyphenate-limit-after: 2;
+  -webkit-hyphenate-limit-chars: 4 2 2;
+  -ms-hyphenate-limit-chars: 4 2 2;
+  hyphenate-limit-chars: 4 2 2;
+  -webkit-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
 }
 
 .text-justify-tight {
   text-align: justify;
-  word-spacing: var(--word-spacing);
+  text-align-last: left;
+  word-spacing: var(--word-spacing-tight);
   hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   overflow-wrap: break-word;
   word-break: normal;
+  /* More aggressive hyphenation for tight spacing */
+  -webkit-hyphenate-limit-before: 2;
+  -webkit-hyphenate-limit-after: 2;
+  -webkit-hyphenate-limit-chars: 3 2 2;
+  -ms-hyphenate-limit-chars: 3 2 2;
+  hyphenate-limit-chars: 3 2 2;
+}
+
+.text-justify-normal {
+  text-align: justify;
+  text-align-last: left;
+  word-spacing: var(--word-spacing-normal);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  /* Standard hyphenation */
+  -webkit-hyphenate-limit-before: 2;
+  -webkit-hyphenate-limit-after: 2;
+  -webkit-hyphenate-limit-chars: 4 2 2;
+  -ms-hyphenate-limit-chars: 4 2 2;
+  hyphenate-limit-chars: 4 2 2;
 }
 
 .text-justify-loose {
   text-align: justify;
-  word-spacing: var(--word-spacing);
+  text-align-last: left;
+  word-spacing: var(--word-spacing-loose);
   hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   overflow-wrap: break-word;
   word-break: normal;
+  /* Less aggressive hyphenation for loose spacing */
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-chars: 5 3 3;
+  -ms-hyphenate-limit-chars: 5 3 3;
+  hyphenate-limit-chars: 5 3 3;
+}
+
+/* Responsive Text Justification - Tighter spacing for narrow screens */
+@media (max-width: 768px) {
+  p, .text-justify, .text-justify-tight, .text-justify-normal, .text-justify-loose, .division-description {
+    word-spacing: var(--word-spacing-tight);
+    /* More aggressive hyphenation on mobile */
+    -webkit-hyphenate-limit-before: 2;
+    -webkit-hyphenate-limit-after: 2;
+    -webkit-hyphenate-limit-chars: 3 2 2;
+    -ms-hyphenate-limit-chars: 3 2 2;
+    hyphenate-limit-chars: 3 2 2;
+    -webkit-hyphenate-limit-lines: 3;
+    -ms-hyphenate-limit-lines: 3;
+    hyphenate-limit-lines: 3;
+  }
+  
+  /* Tighter spacing for mobile text blocks */
+  .hero-description,
+  .section-subtitle,
+  .about-text p,
+  .feature-card p,
+  .value-card p {
+    word-spacing: var(--word-spacing-tight);
+    text-align: justify;
+    text-align-last: left;
+  }
+}
+
+/* Responsive Text Justification - Balanced spacing for tablets and laptops */
+@media (min-width: 769px) and (max-width: 1200px) {
+  p, .text-justify, .text-justify-tight, .text-justify-normal, .text-justify-loose, .division-description {
+    word-spacing: var(--word-spacing);
+    /* Balanced hyphenation for medium screens */
+    -webkit-hyphenate-limit-before: 2;
+    -webkit-hyphenate-limit-after: 2;
+    -webkit-hyphenate-limit-chars: 4 2 2;
+    -ms-hyphenate-limit-chars: 4 2 2;
+    hyphenate-limit-chars: 4 2 2;
+  }
+}
+
+/* Responsive Text Justification - Relaxed spacing for large screens */
+@media (min-width: 1201px) {
+  p, .text-justify, .text-justify-tight, .text-justify-normal, .text-justify-loose, .division-description {
+    word-spacing: var(--word-spacing-normal);
+    /* Less aggressive hyphenation on large screens */
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 5 3 3;
+    -ms-hyphenate-limit-chars: 5 3 3;
+    hyphenate-limit-chars: 5 3 3;
+  }
 }
 
 /* Responsive Design - Mobile (up to 767px) */ 
