@@ -256,7 +256,10 @@
   /* Mobile word spacing consistency for specific division descriptions */
   #oil-gas .division-description,
   #industrial-manufacturing .division-description,
-  #defence-sector .division-description {
+  #defence-sector .division-description,
+  #office-construction .division-description,
+  #construction-infrastructure .division-description,
+  #aviation-marine .division-description {
     text-align: justify !important;
     text-align-last: justify !important;
     word-spacing: 0.2em !important;
@@ -309,7 +312,10 @@
   /* Mobile word spacing consistency for specific division descriptions */
   #oil-gas .division-description,
   #industrial-manufacturing .division-description,
-  #defence-sector .division-description {
+  #defence-sector .division-description,
+  #office-construction .division-description,
+  #construction-infrastructure .division-description,
+  #aviation-marine .division-description {
     text-align: justify !important;
     text-align-last: justify !important;
     word-spacing: 0.25em !important;
@@ -331,7 +337,10 @@
   /* Additional specific targeting for maximum mobile consistency */
   .division-section[id="oil-gas"] .division-description,
   .division-section[id="industrial-manufacturing"] .division-description,
-  .division-section[id="defence-sector"] .division-description {
+  .division-section[id="defence-sector"] .division-description,
+  .division-section[id="office-construction"] .division-description,
+  .division-section[id="construction-infrastructure"] .division-description,
+  .division-section[id="aviation-marine"] .division-description {
     text-align: justify !important;
     word-spacing: 0.3em !important;
     letter-spacing: 0.03em !important;
@@ -347,10 +356,13 @@
     word-spacing: normal !important;
   }
   
-  /* Override specifically for the three mentioned divisions */
+  /* Override specifically for the divisions with similar description patterns */
   .division-section[id="oil-gas"] .division-description,
   .division-section[id="industrial-manufacturing"] .division-description,
-  .division-section[id="defence-sector"] .division-description {
+  .division-section[id="defence-sector"] .division-description,
+  .division-section[id="office-construction"] .division-description,
+  .division-section[id="construction-infrastructure"] .division-description,
+  .division-section[id="aviation-marine"] .division-description {
     word-spacing: 0.18em !important;
     letter-spacing: 0.015em !important;
     text-justify: inter-word !important;

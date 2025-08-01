@@ -39,6 +39,50 @@
   margin-bottom: var(--space-lg);
   font-weight: 400;
   flex-grow: 1;
+  text-align: justify;
+  word-spacing: var(--word-spacing);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Mobile word spacing consistency for division cards */
+@media (max-width: 767px) {
+  .division-card p {
+    text-align: justify !important;
+    word-spacing: 0.18em !important;
+    letter-spacing: 0.015em !important;
+    text-justify: inter-word !important;
+    -webkit-text-justify: inter-word !important;
+    -moz-text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    text-rendering: optimizeLegibility !important;
+    font-variant-ligatures: common-ligatures !important;
+    line-height: 1.65 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .division-card p {
+    text-align: justify !important;
+    word-spacing: 0.25em !important;
+    letter-spacing: 0.025em !important;
+    text-justify: distribute !important;
+    -webkit-text-justify: distribute !important;
+    -moz-text-justify: distribute !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphenate-limit-chars: 4 2 2;
+    text-rendering: optimizeLegibility !important;
+    font-variant-ligatures: common-ligatures !important;
+    line-height: 1.7 !important;
+    font-size: 0.95rem !important;
+  }
 }
 
 .division-link {
