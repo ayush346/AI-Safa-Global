@@ -20,7 +20,7 @@ const CtaSection = () => {
             Let's discuss how Al Safa Global can help you with your procurement and supply chain needs.
           </p>
           <div className="cta-buttons">
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/quote" className="btn btn-primary">
               Get a Quote
               <FiArrowRight />
             </Link>
