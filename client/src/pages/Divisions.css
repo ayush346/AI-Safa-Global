@@ -253,19 +253,21 @@
   #oil-gas .division-description,
   #industrial-manufacturing .division-description,
   #defence-sector .division-description {
-    text-align: justify;
-    word-spacing: 0.12em;
-    letter-spacing: 0.008em;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    text-justify: inter-word;
-    -webkit-text-justify: inter-word;
-    -moz-text-justify: inter-word;
-    overflow-wrap: break-word;
-    word-break: normal;
-    line-height: 1.65;
+    text-align: justify !important;
+    text-align-last: justify !important;
+    word-spacing: 0.2em !important;
+    letter-spacing: 0.02em !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphenate-limit-chars: 5 2 2;
+    text-justify: distribute !important;
+    -webkit-text-justify: distribute !important;
+    -moz-text-justify: distribute !important;
+    overflow-wrap: break-word !important;
+    word-break: keep-all !important;
+    line-height: 1.7 !important;
+    font-size: 1rem !important;
   }
 }
 
@@ -300,18 +302,56 @@
   #oil-gas .division-description,
   #industrial-manufacturing .division-description,
   #defence-sector .division-description {
-    text-align: justify;
-    word-spacing: 0.15em;
-    letter-spacing: 0.01em;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    text-justify: inter-word;
-    -webkit-text-justify: inter-word;
-    -moz-text-justify: inter-word;
-    overflow-wrap: break-word;
-    word-break: normal;
-    line-height: 1.7;
+    text-align: justify !important;
+    text-align-last: justify !important;
+    word-spacing: 0.25em !important;
+    letter-spacing: 0.025em !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphenate-limit-chars: 4 2 2;
+    text-justify: distribute !important;
+    -webkit-text-justify: distribute !important;
+    -moz-text-justify: distribute !important;
+    overflow-wrap: break-word !important;
+    word-break: keep-all !important;
+    line-height: 1.8 !important;
+    font-size: 0.95rem !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  /* Additional specific targeting for maximum mobile consistency */
+  .division-section[id="oil-gas"] .division-description,
+  .division-section[id="industrial-manufacturing"] .division-description,
+  .division-section[id="defence-sector"] .division-description {
+    text-align: justify !important;
+    word-spacing: 0.3em !important;
+    letter-spacing: 0.03em !important;
+    white-space: normal !important;
+    text-justify: distribute-all-lines !important;
+  }
+}
+
+/* Universal mobile word spacing for consistent display */
+@media screen and (max-width: 768px) {
+  .division-section .division-description {
+    text-align: justify !important;
+    word-spacing: normal !important;
+  }
+  
+  /* Override specifically for the three mentioned divisions */
+  .division-section[id="oil-gas"] .division-description,
+  .division-section[id="industrial-manufacturing"] .division-description,
+  .division-section[id="defence-sector"] .division-description {
+    word-spacing: 0.18em !important;
+    letter-spacing: 0.015em !important;
+    text-justify: inter-word !important;
+    -webkit-text-justify: inter-word !important;
+    -moz-text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    text-rendering: optimizeLegibility !important;
+    font-variant-ligatures: common-ligatures !important;
   }
 } 
