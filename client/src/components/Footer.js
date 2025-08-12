@@ -59,7 +59,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/divisions">Divisions</Link></li>
+              <li><Link to="/divisions">Segments</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </motion.div>

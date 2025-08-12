@@ -143,7 +143,7 @@ const Divisions = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="gradient-text">
-              <span className="gold-text">Al Safa Global</span> Divisions
+              <span className="gold-text">Al Safa Global</span> Segments
             </h1>
 
             <p>

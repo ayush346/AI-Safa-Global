@@ -269,7 +269,7 @@ Submitted on: ${new Date().toLocaleString()}
                     onChange={handleInputChange}
                     required
                   >
-                    <option value="">Select Division of Interest *</option>
+                    <option value="">Select Segment of Interest *</option>
                     <option value="Office, Construction & Infrastructure">Office, Construction & Infrastructure</option>
                     <option value="Oil & Gas">Oil & Gas</option>
                     <option value="Construction & Infrastructure">Construction & Infrastructure</option>

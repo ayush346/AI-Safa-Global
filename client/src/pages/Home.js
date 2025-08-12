@@ -310,7 +310,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. Our Specialized Divisions */}
+      {/* 3. Our Business Segments */}
       <section className="divisions-section">
         <div className="container">
           <motion.div 
@@ -320,9 +320,9 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Our Specialized Divisions</h2>
+            <h2>Our Business Segments</h2>
             <p className="section-subtitle">
-              Al Safa Global specializes in a wide array of supply and service divisions
+              Al Safa Global specializes in a wide array of supply and service segments
             </p>
           </motion.div>
 
