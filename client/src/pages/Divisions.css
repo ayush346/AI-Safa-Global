@@ -283,6 +283,9 @@
 
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
+  .divisions-hero {
+    padding-top: 4rem; /* Match Contact hero top spacing on small mobile */
+  }
   .divisions-content {
     padding-top: 1rem; /* Reduce space AFTER hero only on small mobile */
   }
