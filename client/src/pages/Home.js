@@ -169,13 +169,6 @@ const Home = () => {
       link: "/divisions#oil-gas"
     },
     {
-      title: "Construction & Infrastructure",
-      description: "Comprehensive sourcing for building materials, tools, safety gear, MEP systems, IT hardware/software, and site essentials.",
-      icon: "🏗️",
-      color: "var(--primary-blue-dark)",
-      link: "/divisions#construction-infrastructure"
-    },
-    {
       title: "Industrial & Manufacturing",
       description: "Providing MRO supplies, automation components, PPE, bearings, motors, spare parts, and factory-grade consumables.",
       icon: "🏭",

@@ -182,7 +182,7 @@ Submitted on: ${new Date().toLocaleString()}
                 <option value="">Select Segment of Interest *</option>
                 <option value="Office, Construction & Infrastructure">Office, Construction & Infrastructure</option>
                 <option value="Oil & Gas">Oil & Gas</option>
-                <option value="Construction & Infrastructure">Construction & Infrastructure</option>
+                
                 <option value="Industrial & Manufacturing">Industrial & Manufacturing</option>
                 <option value="Aviation & Marine">Aviation, Marine & Shipping</option>
                 <option value="Defence Sector">Defence Sector</option>

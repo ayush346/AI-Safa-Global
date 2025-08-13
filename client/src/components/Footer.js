@@ -74,7 +74,7 @@ const Footer = () => {
           >
             <h4>Our Services</h4>
             <ul className="footer-links">
-              <li>Office & Construction</li>
+              <li>Office, Construction & Infrastructure</li>
               <li>Oil & Gas</li>
               <li>Industrial & Manufacturing</li>
               <li>Aviation & Marine</li>

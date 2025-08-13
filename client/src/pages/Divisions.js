@@ -75,20 +75,6 @@ const Divisions = () => {
       ]
     },
     {
-      id: "construction-infrastructure",
-      title: "Construction & Infrastructure",
-      description: "Comprehensive sourcing for building materials, tools, safety gear, MEP systems, IT hardware/software, and site essentials.",
-      items: [
-        "Office Stationery Supplies, General items and IT materials including Hardware & Software",
-        "Scaffolding systems, formwork materials",
-        "Fasteners, anchors, power tools",
-        "HVAC equipment, electrical panels, lighting systems",
-        "Site safety gear, signage, traffic control devices",
-        "Plumbing fixtures, cement additives, adhesives",
-        "Tools, fixtures, and systems for structural and civil projects"
-      ]
-    },
-    {
       id: "industrial-manufacturing",
       title: "Industrial & Manufacturing",
       description: "Providing MRO supplies, automation components, PPE, bearings, motors, spare parts, and factory-grade consumables.",
@@ -102,6 +88,7 @@ const Divisions = () => {
         "Tyres and Automobile Spare parts"
       ]
     },
+    
     {
       id: "aviation-marine",
       title: "Aviation, Marine & Shipping",
