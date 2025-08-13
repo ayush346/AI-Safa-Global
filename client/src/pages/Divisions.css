@@ -209,12 +209,8 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .divisions-hero {
-    padding: 3.5rem 0 0.5rem;
-  }
-
   .divisions-content {
-    padding: 1.5rem 0;
+    padding-top: 1.5rem; /* Reduce space AFTER hero only */
   }
   .divisions-hero-content h1 {
     font-size: 2rem;
@@ -287,12 +283,8 @@
 
 /* Responsive Design - Small Mobile (480px and below) */
 @media (max-width: 480px) {
-  .divisions-hero {
-    padding: 3rem 0 0.5rem; /* Reduce mobile gap under hero */
-  }
-
   .divisions-content {
-    padding: 1.25rem 0; /* Tighter spacing below hero on small mobile */
+    padding-top: 1rem; /* Reduce space AFTER hero only on small mobile */
   }
   
   .divisions-hero-content h1 {
