@@ -82,21 +82,31 @@
 .contact-phones {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .contact-phones > div {
-  white-space: nowrap;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 8px;
+  align-items: center;
 }
 
 .footer .contact-phones .contact-link {
   display: inline;
   min-height: 0;
   align-items: baseline;
+  white-space: nowrap;
 }
 
 .footer .contact-phones span {
   font-weight: 600;
   margin-right: 8px;
+}
+
+/* Keep alignment stable on hover for phone links */
+.footer .contact-phones .contact-link:hover {
+  transform: none;
 }
 
 .footer-links {
