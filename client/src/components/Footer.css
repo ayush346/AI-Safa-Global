@@ -78,6 +78,27 @@
   border-radius: 4px;
 }
 
+/* Phone lines: force exactly two lines (Office, Mobile) */
+.contact-phones {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-phones > div {
+  white-space: nowrap;
+}
+
+.footer .contact-phones .contact-link {
+  display: inline;
+  min-height: 0;
+  align-items: baseline;
+}
+
+.footer .contact-phones span {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
 .footer-links {
   list-style: none;
   padding: 0;
