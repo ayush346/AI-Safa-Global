@@ -24,7 +24,6 @@ h1, h2, h3, .hero-title, .section-title {
   display: flex;
   flex-direction: column;
   background: var(--white);
-  overflow-x: hidden;
 }
 
 .main-content {
